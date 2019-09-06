@@ -13,11 +13,12 @@
 </head>
 <body>
     <div class="container">
-        {% include 'header.html' %}
+        {% include 'includes/header.html' %}
         <main>
             {% block content %}
             {% endblock content %}
         </main>
     </div>
+    {% include 'includes/messages.html' %}
 </body>
 </html>
