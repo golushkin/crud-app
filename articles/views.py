@@ -11,6 +11,9 @@ class ArtilceListView(ListView):
 class ArtilceProfileListView(ListView):
     model = Article
     template_name = 'articles/profile_articles.html'
+
+    def get_queryset(self):
+        return Article.objects.filter(author=self.request.user)
     
 
 class ArticleDetailView(DetailView):

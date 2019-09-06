@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 
 class SignUpView(CreateView):
     template_name = 'signup.html'
-    success_url = reverse_lazy('articles:home')
+    success_url = reverse_lazy('home')
     form_class = CutomUserCreationForm
 
     def form_invalid(self,form):
@@ -18,3 +18,10 @@ class SignUpView(CreateView):
                 messages.error(self.request,'Error: {}'.format(error_n['message']))
         form.errors.clear()
         return super().form_invalid(form)
+
+    def form_valid(self,form):
+        valid = super(SignUpView, self).form_valid(form)
+        username, password = form.cleaned_data.get('username'), form.cleaned_data.get('password1')
+        new_user = authenticate(username=username, password=password)
+        login(self.request, new_user)
+        return valid

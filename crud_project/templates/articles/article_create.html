@@ -3,7 +3,7 @@
 {%block title%}Create article{% endblock title %}
 
 {% block content %}
-    <div>
+    <div class="article-create-form">
         <form method="POST">{% csrf_token %}
             {{form.as_p}}
             <button class="btn waves-effect waves-light" type="submit" name="action">Create
