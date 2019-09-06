@@ -15,9 +15,18 @@ class ArticleTest(TestCase):
 
     def test_create_page_status_code(self):
         res = self.client.get('/articles/create')
+        self.assertEqual(res.status_code,302)
+        user = get_user_model().objects.create_user(
+            self.username,
+            self.email
+        )
+        self.client.force_login(user=user)
+        res = self.client.get('/articles/create')
         self.assertEqual(res.status_code,200)
 
     def test_profile_page_status_code(self):
+        res = self.client.get('/articles/profile')
+        self.assertEqual(res.status_code,302)
         user = get_user_model().objects.create_user(
             self.username,
             self.email
@@ -31,6 +40,8 @@ class ArticleTest(TestCase):
         self.assertEqual(res.status_code,200)
 
     def test_profile_view_by_name(self):
+        res = self.client.get(reverse('profile_articles'))
+        self.assertEqual(res.status_code,302)
         user = get_user_model().objects.create_user(
             self.username,
             self.email
@@ -40,6 +51,13 @@ class ArticleTest(TestCase):
         self.assertEqual(res.status_code,200)
 
     def test_create_view_by_name(self):
+        res = self.client.get(reverse('article_create'))
+        self.assertEqual(res.status_code,302)
+        user = get_user_model().objects.create_user(
+            self.username,
+            self.email
+        )
+        self.client.force_login(user=user)
         res = self.client.get(reverse('article_create'))
         self.assertEqual(res.status_code,200)
 
@@ -59,6 +77,11 @@ class ArticleTest(TestCase):
         self.assertTemplateUsed(res,'articles/profile_articles.html')
 
     def test_create_view_uses_correct_template(self):
+        user = get_user_model().objects.create_user(
+            self.username,
+            self.email
+        )
+        self.client.force_login(user=user)
         res = self.client.get(reverse('article_create'))
         self.assertEqual(res.status_code,200)
         self.assertTemplateUsed(res,'articles/article_create.html')
