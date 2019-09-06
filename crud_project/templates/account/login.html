@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+{%block title%}LogIn{% endblock title %}
+
+{% block content %}
+    <div class="log-in-form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <p>
+                    <a href="{% provider_login_url 'google' process='login'%}">LogIn with Google</a>
+                </p>
+                <p>
+                    <a href="{% provider_login_url 'vk' process='login' %}">LogIn with Vk</a>
+                </p>
+                <button class="btn waves-effect waves-light" type="submit" name="action">LogIn
+                        <i class="material-icons right">send</i>
+                </button>
+            </form>
+    </div>
+{% endblock content %}

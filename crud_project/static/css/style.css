@@ -94,6 +94,7 @@ main{
     resize: vertical;
 }
 
+/* for articles on home page */
 .articles{
     margin-top: 3%;
 }
@@ -109,6 +110,8 @@ main{
 .cart-info{
     margin-top: 2%;
 }
+
+/*comments for article detail*/
 
 .comments .comment{
     border-bottom: 1px solid #ececec;
@@ -132,4 +135,24 @@ main{
 
 .comment-body{
     margin: 1% 0;
+}
+
+/*change password form*/
+
+.change-pass{
+    margin: 5% auto;
+    border-radius: 1%;
+    padding: 2%;
+    background-color: #fff;
+    width: 70%;
+}
+
+/*log out form*/
+
+.form-log-out{
+    margin: 5% auto;
+    border-radius: 1%;
+    padding: 2%;
+    background-color: #fff;
+    width: 70%;
 }

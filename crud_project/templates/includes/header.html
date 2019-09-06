@@ -3,9 +3,9 @@
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="{% url 'article_create' %}">Add article</a></li>
         <li><a href="{% url 'profile_articles' %}">My articles</a></li>
-        <li><a href="#!">Change password</a></li>
+        <li><a href="{% url 'account_change_password' %}">Change password</a></li>
         <li class="divider"></li>
-        <li><a href="{% url 'account_logout' %}">LogOut</a></li>
+        <li><a href="{% url 'custom_account:logout' %}">LogOut</a></li>
     </ul>
     <nav>
         <div class="nav-wrapper">
@@ -15,7 +15,7 @@
                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{user.username}}<i class="material-icons right">arrow_drop_down</i></a></li>
             {% else %}
                 <li><a href="{% url 'account_login' %}">LogIn</a></li>
-                <li><a href="{% url 'account_signup' %}">SignUp</a></li>
+                <li><a href="{% url 'custom_account:signup' %}">SignUp</a></li>
             {% endif %}
           </ul>
         </div>
