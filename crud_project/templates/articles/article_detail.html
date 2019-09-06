@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{%block title%}Detail{% endblock title %}
+
+{% block content %}
+    <article class="article-detail">
+        <header class="article-title">
+            {{object.title}}
+        </header>
+        <div class="content">
+            {{object.body}}
+        </div>
+        <footer>
+            {{object.date}} | by {{object.author}}
+        </footer>
+    </article>
+{% endblock content %}

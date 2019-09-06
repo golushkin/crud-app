@@ -1,12 +1,17 @@
 <header>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="{% url 'article_create' %}">Add article</a></li>
+        <li><a href="{% url 'profile_articles' %}">My articles</a></li>
+        <li><a href="#!">Change password</a></li>
+        <li class="divider"></li>
+        <li><a href="{% url 'logout' %}">LogOut</a></li>
+    </ul>
     <nav>
         <div class="nav-wrapper">
           <a href="{% url 'home' %}" class="brand-logo">Logo</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            {% if user.is_authenticated  %}
-                <li>{{user.username}}</li>
-                <li><a href="#">Add article</a></li>
-                <li><a href="{% url 'logout' %}">LogOut</a></li>
+            {% if user.is_authenticated  %}      
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{user.username}}<i class="material-icons right">arrow_drop_down</i></a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">LogIn</a></li>
                 <li><a href="{% url 'signup' %}">SignUp</a></li>

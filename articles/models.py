@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
-    body = models.TextField(max_length=200)
+    body = models.TextField()
     author = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE
@@ -15,4 +15,4 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('articles',args=[str(self.id)])
+        return reverse('article_detail',args=[str(self.id)])

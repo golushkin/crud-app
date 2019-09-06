@@ -1,0 +1,66 @@
+body{
+    background-color: #f3f3f3; 
+}
+
+.nav-wrapper .brand-logo{
+    font-size: 2.1em !important;
+}
+.nav-wrapper li{
+    font-size: 1.2em !important;
+}
+.nav-wrapper li a{
+    font-size: 1.2rem !important;
+}
+.article-detail{
+    margin-top: 5%; 
+    padding: .65em 10em;
+    border: 1px solid silver;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.article-detail header{
+    font-size: 2.5em;
+}
+
+.article-detail .content{
+    font-size: 1.2em;
+    text-align: justify;
+    text-indent: 1em;
+    margin: 2% 0;
+}
+
+
+.article-detail footer{
+   font-size: 1em;
+   color: #424242;
+   text-align: right;
+}
+
+.log-in-form{
+    background-color: #fff;
+    padding: 1em;
+    width: 50%;
+    margin: 5% auto;
+    border-radius: 5px;
+}
+
+.log-in-form button{
+    margin-top: 2%;
+}
+
+.signup-form{
+    background-color: #fff;
+    padding: 1em;
+    width: 50%;
+    margin: 5% auto;
+    border-radius: 5px;
+}
+
+.table-articles{
+    background-color: #fff;
+    padding: 1em 5em;
+    margin-top: 5%;
+    border-radius: 5px;
+    width: 100%;
+}

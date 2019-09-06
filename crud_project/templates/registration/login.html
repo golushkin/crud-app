@@ -3,11 +3,13 @@
 {%block title%}LogIn{% endblock title %}
 
 {% block content %}
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form}}
-        <button class="btn waves-effect waves-light" type="submit" name="action">LogIn
-                <i class="material-icons right">send</i>
-        </button>
-    </form>
+    <div class="log-in-form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form}}
+                <button class="btn waves-effect waves-light" type="submit" name="action">LogIn
+                        <i class="material-icons right">send</i>
+                </button>
+            </form>
+    </div>
 {% endblock content %}

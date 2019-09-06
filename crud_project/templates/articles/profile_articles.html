@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{%block title%}My articles{% endblock title %}
+
+{% block content %}
+    <div class="table-articles">
+        <table class="responsive-table highlight">
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <!-- <th>Item Name</th> -->
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                {% for article in object_list %}
+                    <tr>
+                        <td>{{article.title}}</td>
+                        <td><a href="#"><i class="material-icons">edit</i></a></td>
+                        <td><a href="#"><i class="material-icons">delete</i></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
