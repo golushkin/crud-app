@@ -1,5 +1,23 @@
 body{
     background-color: #f3f3f3; 
+    height: 100%;
+}
+html{
+    height: 100%;
+}
+
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex: 1 0 auto;
+}
+
+.base-footer{
+    flex: 0 0 auto;
 }
 
 .nav-wrapper .brand-logo{
@@ -75,4 +93,16 @@ body{
 
 .article-create-form textarea{
     resize: vertical;
+}
+
+.articles{
+    margin-top: 3%;
+}
+
+.pagination{
+    text-align: center;
+}
+
+.card-action{
+    text-align: center
 }

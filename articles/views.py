@@ -8,6 +8,10 @@ from django.contrib import messages
 class ArtilceListView(ListView):
     model = Article
     template_name = 'home.html'
+    paginate_by = 8
+
+    def get_queryset(self):
+        return Article.objects.all().order_by('-date')
     
 
 class ArtilceProfileListView(LoginRequiredMixin,ListView):
