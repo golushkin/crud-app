@@ -20,7 +20,7 @@ class ArtilceProfileListView(LoginRequiredMixin,ListView):
     template_name = 'articles/profile_articles.html'
 
     def get_login_url(self):
-        return reverse('login')
+        return reverse('account_login')
 
     def get_queryset(self):
         return Article.objects.filter(author=self.request.user).order_by('-date')
@@ -50,7 +50,7 @@ class ArticleCreateView(LoginRequiredMixin,CreateView):
         return reverse('home')
 
     def get_login_url(self):
-        return reverse('login')
+        return reverse('account_login')
 
     def form_valid(self,form):
         form.instance.author = self.request.user
@@ -69,7 +69,7 @@ class ArticleDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
         return self.request.user == obj.author
     
     def get_login_url(self):
-        return reverse('login')
+        return reverse('account_login')
 
 class ArticleUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
     model = Article
@@ -84,7 +84,7 @@ class ArticleUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
         return self.request.user == obj.author
     
     def get_login_url(self):
-        return reverse('login')
+        return reverse('account_login')
 
 class CommentCreateView(LoginRequiredMixin,CreateView):
     model = Comment
