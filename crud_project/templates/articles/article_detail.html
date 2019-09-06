@@ -9,9 +9,33 @@
         </header>
         <div class="content">
             {{object.body}}
+            <p class="created-info">
+                {{object.date}} | by {{object.author}}
+            </p>
         </div>
         <footer>
-            {{object.date}} | by {{object.author}}
+            {% if object.comments.all|length %}
+                <div class="comments">
+                    {% for comment in object.comments.all %}
+                        <div class="comment">
+                            <div class="comment-header">
+                                <div class="author">
+                                    {{comment.author}}
+                                </div>
+                                <div class="date">
+                                    ({{comment.date}})
+                                </div>
+                            </div>
+                            <div class="comment-body">
+                                {{comment.body}}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if user.is_authenticated %}
+                {% include './create_comment.html' with form=comment_form %}
+            {% endif %}
         </footer>
     </article>
 {% endblock content %}

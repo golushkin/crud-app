@@ -1,6 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView,DeleteView,CreateView
-from .models import Article
+from .models import Article, Comment
+from .forms import CommentForm
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
@@ -22,12 +23,22 @@ class ArtilceProfileListView(LoginRequiredMixin,ListView):
         return reverse('login')
 
     def get_queryset(self):
-        return Article.objects.filter(author=self.request.user)
+        return Article.objects.filter(author=self.request.user).order_by('-date')
     
 
 class ArticleDetailView(DetailView):
     model = Article
     template_name = 'articles/article_detail.html'
+
+    def get_context_data(self, **kwargs): 
+        context = super(ArticleDetailView, self).get_context_data(**kwargs)
+        context['comment_form'] = CommentForm(
+            initial= {
+                'article': self.object,
+                'author':self.request.user,
+            }
+        )
+        return context
 
 class ArticleCreateView(LoginRequiredMixin,CreateView):
     model = Article
@@ -74,3 +85,9 @@ class ArticleUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
     
     def get_login_url(self):
         return reverse('login')
+
+class CommentCreateView(LoginRequiredMixin,CreateView):
+    model = Comment
+    template_name = 'articles/create_comment.html'
+    http_method_names = ('post',)
+    form_class = CommentForm

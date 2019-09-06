@@ -29,4 +29,9 @@ urlpatterns = [
         views.ArticleUpdateView.as_view(),
         name='article_update'
     ),
+    path(
+        'comment/add',
+        views.CommentCreateView.as_view(),
+        name='comment_create'
+    ),
 ]

@@ -32,7 +32,6 @@ main{
 .article-detail{
     margin-top: 5%; 
     padding: .65em 10em;
-    border: 1px solid silver;
     border-radius: 5px;
     background-color: #fff;
 }
@@ -49,9 +48,9 @@ main{
 }
 
 
-.article-detail footer{
-   font-size: 1em;
-   color: #424242;
+.created-info{
+   font-size: 1rem;
+   color: #636363;
    text-align: right;
 }
 
@@ -105,4 +104,32 @@ main{
 
 .card-action{
     text-align: center
+}
+
+.cart-info{
+    margin-top: 2%;
+}
+
+.comments .comment{
+    border-bottom: 1px solid #ececec;
+    margin: 1% 0;
+}
+
+.comment-header{
+    display: flex;
+    align-items: center;
+}
+
+.comment-header .date{
+    margin-left: 2%;
+    font-size: .75rem;
+    color: #636363;
+}
+
+.comment-header .author{
+    font-size: 1.2rem;
+}
+
+.comment-body{
+    margin: 1% 0;
 }
