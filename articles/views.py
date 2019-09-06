@@ -47,7 +47,7 @@ class ArticleCreateView(LoginRequiredMixin,CreateView):
 
     def get_success_url(self):
         messages.info(self.request,'Article "{}" created'.format(self.object.title))
-        success_url = reverse_lazy('home')
+        return reverse('home')
 
     def get_login_url(self):
         return reverse('login')

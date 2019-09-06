@@ -54,24 +54,16 @@ main{
    text-align: right;
 }
 
-.log-in-form{
+.log-in-form, .signup-form, .article-delete-confirm, .article-create-form, .article-update, .email-manager, .form-reset-password{
     background-color: #fff;
     padding: 1em;
-    width: 50%;
+    width: 70%;
     margin: 5% auto;
     border-radius: 5px;
 }
 
 .log-in-form button{
     margin-top: 2%;
-}
-
-.signup-form{
-    background-color: #fff;
-    padding: 1em;
-    width: 50%;
-    margin: 5% auto;
-    border-radius: 5px;
 }
 
 .table-articles{
@@ -82,17 +74,31 @@ main{
     width: 100%;
 }
 
-.article-create-form{
-    background-color: #fff;
-    padding: 1em;
-    width: 70%;
-    margin: 5% auto;
-    border-radius: 5px;
+/* create article & edit article */
+
+.article-create-form textarea, .article-update textarea{
+    resize: vertical;
+    outline: none;
 }
 
-.article-create-form textarea{
-    resize: vertical;
+.article-create-form textarea::-webkit-scrollbar, .article-update textarea::-webkit-scrollbar {
+    width: .5%;
 }
+
+.article-create-form textarea::-webkit-scrollbar-track, .article-update textarea::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+.article-create-form textarea::-webkit-scrollbar-thumb, .article-update textarea::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 16%;
+}
+
+.article-create-form textarea::-webkit-scrollbar-thumb:hover, .article-update textarea::-webkit-scrollbar-thumb:hover {
+    background: #6e6e6e; 
+}
+
+
 
 /* for articles on home page */
 .articles{
@@ -155,4 +161,18 @@ main{
     padding: 2%;
     background-color: #fff;
     width: 70%;
+}
+
+/*email manager*/
+
+.buttonHolder{
+    margin-top: 2%;
+}
+
+/* password reset done */
+
+.password-reset-done{
+    background-color: #fff;
+    padding: 2% 1%;
+    margin-top: 5%;
 }

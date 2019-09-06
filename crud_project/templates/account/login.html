@@ -13,6 +13,9 @@
                 <p>
                     <a href="{% provider_login_url 'vk' process='login' %}">LogIn with Vk</a>
                 </p>
+                <p>
+                    Forget your password? <a href="{% url 'account_reset_password' %}">Reset password</a>
+                </p>
                 <button class="btn waves-effect waves-light" type="submit" name="action">LogIn
                         <i class="material-icons right">send</i>
                 </button>
