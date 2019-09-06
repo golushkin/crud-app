@@ -7,6 +7,8 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 {{form}}
+                <!-- <a href="{% url 'social:begin' 'vk-oauth2' %}">Login with Vk</a> -->
+                <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
                 <button class="btn waves-effect waves-light" type="submit" name="action">LogIn
                         <i class="material-icons right">send</i>
                 </button>
