@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "C:\\Users\\Kamina\\.virtualenvs\\crud_app-7G2OQ0xk\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
+}
