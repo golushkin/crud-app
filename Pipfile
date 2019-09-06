@@ -9,7 +9,7 @@ pylint-django = "*"
 
 [packages]
 django = "*"
-social-auth-app-django = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.7"
