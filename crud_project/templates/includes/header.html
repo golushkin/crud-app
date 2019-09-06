@@ -5,6 +5,7 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if user.is_authenticated  %}
                 <li>{{user.username}}</li>
+                <li><a href="#">Add article</a></li>
                 <li><a href="{% url 'logout' %}">LogOut</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">LogIn</a></li>

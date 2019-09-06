@@ -2,21 +2,19 @@ from .forms import CutomUserCreationForm
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
-def register(request):
-    if request.method == "POST":
-        form = CutomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            username = form.cleaned_data.get('username')
-            login(request, user)
-            messages.success(request,'You created an account')
-            return redirect("home")
-        else:
-            for field in form:
-                for msg in field.errors:
-                    messages.error(request,'Error: {}'.format(msg))
-    form = CutomUserCreationForm()
-    return render(request = request,
-                  template_name = "signup.html",
-                  context={"form":form})
+
+class SignUpView(CreateView):
+    template_name = 'signup.html'
+    success_url = reverse_lazy('articles:home')
+    form_class = CutomUserCreationForm
+
+    def form_invalid(self,form):
+        json_errors = form.errors.get_json_data()
+        for error_f in json_errors:
+            for error_n in json_errors[error_f]:
+                messages.error(self.request,'Error: {}'.format(error_n['message']))
+        form.errors.clear()
+        return super().form_invalid(form)
