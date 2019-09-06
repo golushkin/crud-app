@@ -18,8 +18,8 @@
                 {% for article in object_list %}
                     <tr>
                         <td>{{article.title}}</td>
-                        <td><a href="#"><i class="material-icons">edit</i></a></td>
-                        <td><a href="#"><i class="material-icons">delete</i></a></td>
+                        <td><a href="{{article.get_absolute_url}}"><i class="material-icons">edit</i></a></td>
+                        <td><a href="{{article.get_absolute_url}}"><i class="material-icons">delete</i></a></td>
                     </tr>
                 {% endfor %}
             </tbody>
